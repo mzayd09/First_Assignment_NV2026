@@ -15,12 +15,13 @@ export class LoginAction {
         this.loginPage = new LoginPage(page);
 
     }
+    // sequential actions to perform login operations//
     async login(username: string, password: string) {
         await this.loginPage.usernameInput.fill(username);
         await this.loginPage.passwordInput.fill(password);
         await this.loginPage.loginButton.click();
     }
-
+// methood to get error message text//
     async getErrorMessage() {
         return this.loginPage.errorMessage;
     }

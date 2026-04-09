@@ -1,7 +1,7 @@
 import {test, expect} from "@playwright/test";
 import { LoginAction } from "../../src/action/LoginAction.ts";
 
-import loginData from "../../src/testdata/testdata.json";
+import loginData from "../../src/testdata/Logintestdata.json";
 
 
 test.beforeEach(async ({page}) => {
