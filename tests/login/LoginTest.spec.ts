@@ -1,0 +1,31 @@
+import {test, expect} from "@playwright/test";
+import { LoginAction } from "../../src/action/LoginAction.ts";
+
+import loginData from "../../src/testdata/testdata.json";
+
+
+test.beforeEach(async ({page}) => {
+    await page.goto(loginData.baseUrl);
+});
+
+
+test('TC-01: Validate user should login successfully', async ({page}) =>{
+const loginAction = new LoginAction(page);
+await loginAction.login(loginData.ValidUser.username, loginData.ValidUser.password);
+await expect(page).toHaveTitle(loginData.PageTitle);
+await expect(page).toHaveURL(loginData.DashboardUrl);
+});
+
+test('TC-02: Locked out user should not login', async ({page}) =>{
+const loginAction = new LoginAction(page);
+const errormsg = await loginAction.getErrorMessage();
+await loginAction.login(loginData.lockedUser.username, loginData.lockedUser.password);
+await expect(errormsg).toHaveText(loginData.lockedUser.errorMessage);   
+});
+
+test('TC-03: invalid user should not login', async ({page}) =>{
+const loginAction = new LoginAction(page);
+const errormsg = await loginAction.getErrorMessage();
+await loginAction.login(loginData.invalidUser.username, loginData.invalidUser.password);
+await expect(errormsg).toHaveText(loginData.invalidUser.errorMessage);   
+});
