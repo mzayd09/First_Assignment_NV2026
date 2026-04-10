@@ -10,23 +10,23 @@ test.beforeEach(async ({page}) => {
 });
 
 
-test('TC-01: Validate user should login successfully', async ({loginAction,page}) =>{
+test('TC-01: Validate user should login successfully', async ({allAct, page}) =>{
 //const loginAction = new LoginAction(page);
-await loginAction.login(loginData.ValidUser.username, loginData.ValidUser.password);
+await allAct.loginAction.login(loginData.ValidUser.username, loginData.ValidUser.password);
 await expect(page).toHaveTitle(loginData.PageTitle);
 await expect(page).toHaveURL(loginData.DashboardUrl);
 });
 
-test('TC-02: Locked out user should not login', async ({loginAction}) =>{
+test('TC-02: Locked out user should not login', async ({allAct}) =>{
 //const loginAction = new LoginAction(page);
-const errormsg = await loginAction.getErrorMessage();
-await loginAction.login(loginData.lockedUser.username, loginData.lockedUser.password);
+const errormsg = await allAct.loginAction.getErrorMessage();
+await allAct.loginAction.login(loginData.lockedUser.username, loginData.lockedUser.password);
 await expect(errormsg).toHaveText(loginData.lockedUser.errorMessage);   
 });
 
-test('TC-03: invalid user should not login', async ({loginAction}) =>{
+test('TC-03: invalid user should not login', async ({allAct}) =>{
 //const loginAction = new LoginAction(page);
-const errormsg = await loginAction.getErrorMessage();
-await loginAction.login(loginData.invalidUser.username, loginData.invalidUser.password);
+const errormsg = await allAct.loginAction.getErrorMessage();
+await allAct.loginAction.login(loginData.invalidUser.username, loginData.invalidUser.password);
 await expect(errormsg).toHaveText(loginData.invalidUser.errorMessage);   
 });

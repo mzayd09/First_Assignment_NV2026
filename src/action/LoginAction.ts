@@ -4,6 +4,7 @@ import { Page } from "@playwright/test";
 
 import { LoginPage } from "../page/LoginPage";
 
+
 //creating login action class to perform actions on login page//
 
 export class LoginAction {
@@ -15,13 +16,13 @@ export class LoginAction {
         this.loginPage = new LoginPage(page);
 
     }
-    // sequential actions to perform login operations//
+    // sequential actions to perform login
     async login(username: string, password: string) {
         await this.loginPage.usernameInput.fill(username);
         await this.loginPage.passwordInput.fill(password);
         await this.loginPage.loginButton.click();
     }
-// methood to get error message text//
+
     async getErrorMessage() {
         return this.loginPage.errorMessage;
     }
