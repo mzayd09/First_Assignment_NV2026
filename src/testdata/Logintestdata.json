@@ -2,6 +2,7 @@
     "baseUrl": "https://www.saucedemo.com/",
     "DashboardUrl": "https://www.saucedemo.com/inventory.html",
     "PageTitle": "Swag Labs",
+    "DashboardPageTitle": "Swag Labs",
     "ValidUser": {
         "username": "standard_user",
         "password": "secret_sauce"
@@ -15,6 +16,13 @@
         "username": "invalid_user",
         "password": "invalid_password",
         "errorMessage": "Epic sadface: Username and password do not match any user in this service"
-    }
+    },
+
+    "All Menu Items": [
+        "All Items",
+        "About",
+        "Logout",
+        "Reset App State"
+    ]
 
 }
