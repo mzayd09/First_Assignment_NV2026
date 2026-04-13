@@ -1,14 +1,14 @@
 import { Page, expect } from "@playwright/test";
 import { LoginAction } from "./LoginAction";
-import { DashboardAction } from "./DashboardAction";
+import { DashboardAction } from "./DashboardActions";
 
 export class AllActions {
     readonly loginAction: LoginAction;
-    readonly dashboardAction: DashboardAction;  
+    readonly dashboardActions: DashboardAction;  
     private page: Page;
     constructor(page: Page) {
         this.loginAction = new LoginAction(page);
-        this.dashboardAction = new DashboardAction(page);
+        this.dashboardActions = new DashboardAction(page);
         this.page = page;   
     }
 }

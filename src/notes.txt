@@ -1,0 +1,17 @@
+Locators Type:
+
+Playwright prioritize in-built locators first.
+
+Built in locators for playwright: 
+
+page.getByRole() - to locate an implicit, explicit accessibility attributes
+page.getByAltText() - to locate an element, usually image, by its text alternatives.
+page.getByText() - to locate by text content.
+page.getByLable() - to locate a form control by associated  label's text.
+page.getByPlaceholder() to locate an input by getByPlaceholder  
+page.getByTitle() to locate an element by its title attributes.
+page.getByTestID() to locate an element based on its data-testid-attribute (other can be configured)
+
+other locators:
+
+page.locator() - xpath/ css 
