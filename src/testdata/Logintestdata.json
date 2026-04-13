@@ -18,11 +18,15 @@
         "errorMessage": "Epic sadface: Username and password do not match any user in this service"
     },
 
+    "CartItemCount": 1,
+    
     "All Menu Items": [
         "All Items",
         "About",
         "Logout",
         "Reset App State"
     ]
+
+
 
 }

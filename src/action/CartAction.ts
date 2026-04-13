@@ -15,8 +15,10 @@ export class CartAction {
     // sequential actions to perform login
     async AddToCartAction () {
         await this.AddToCart.AddToCartButton.click();
+        await this.AddToCart.CartBadgeCount.waitFor({ state: 'visible' });
+        
     }
-
+   
     // async getErrorMessage() {
     //     return this.Dashboard.errorMessage;
     // }

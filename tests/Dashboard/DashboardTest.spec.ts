@@ -1,14 +1,14 @@
 
-import { expect, test } from "../../../src/fixture/fixture";
-import loginData from "../../../src/testdata/Logintestdata.json";
-
+import {test, expect} from "../../src/fixture/fixture";
+import loginData from "../../src/testdata/Logintestdata.json";
 test.beforeEach(async ({page}) => {
     await page.goto(loginData.baseUrl);
 });
 
-test('TC-04: Dashboard page should display correctly', async ({AllActions}) =>{
+test('TC-04: Dashboard page should display correct Title', async ({AllActions}) =>{
     await AllActions.loginAction.login(loginData.ValidUser.username, loginData.ValidUser.password);
     // await AllActions.dashboardAction.DashboardPageAction();
+    await expect(AllActions.dashboardActions.Dashboard.PageTitle).toHaveText(loginData.PageTitle);
     await expect(AllActions.dashboardActions.Dashboard.DashboardPageTitle).toHaveText(loginData.DashboardPageTitle);
 });
 

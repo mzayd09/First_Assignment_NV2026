@@ -6,6 +6,9 @@ export class LoginPage {
     readonly passwordInput: Locator;
     readonly loginButton: Locator; 
     readonly errorMessage: Locator;
+    readonly MenuLogout: Locator;
+    readonly usernamePlaceholder: Locator;
+    readonly PageTitle: Locator;
     
     constructor(page: Page) {
         this.page = page;
@@ -14,6 +17,10 @@ export class LoginPage {
         this.usernameInput = page.getByRole('textbox', { name: 'Username' });
         this.passwordInput = page.getByRole('textbox', { name: 'Password' });
         this.loginButton = page.getByRole('button', { name: 'Login' });
+        this.MenuLogout = page.locator('//*[@data-test="logout-sidebar-link"]');       
         this.errorMessage = page.locator('//*[@class="error-message-container error"]/h3');
+        this.usernamePlaceholder = page.getByPlaceholder('Username');
+        this.PageTitle = page.getByText('Swag Labs');
+
     }
 } 
